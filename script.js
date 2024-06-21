@@ -9,7 +9,6 @@ const responseDiv = document.querySelector('#response');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  // Валидация
   let isValid = true;
 
   if (!firstNameInput.value.trim()) {
@@ -52,7 +51,6 @@ form.addEventListener('submit', (event) => {
     messageInput.nextElementSibling.style.display = 'none';
   }
 
-  // Отправка формы AJAX
   if (isValid) {
     const formData = {
       firstName: firstNameInput.value,
@@ -88,13 +86,11 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-// Функция валидации email
 function validateEmail(email) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
 
-// Функция валидации телефона (простая проверка)
 function validatePhone(phone) {
   const re = /^\+?\d{10,15}$/;
   return re.test(phone);
